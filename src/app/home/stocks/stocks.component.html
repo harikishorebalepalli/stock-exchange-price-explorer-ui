@@ -1,7 +1,32 @@
-<mat-card>Simple card</mat-card>
+<mat-card>
+    <form class="flex-container" [formGroup]="requestFormGroup" (ngSubmit)="fetchStockData()">
+        <mat-form-field class="input-box form-element" appearance="fill"  >
+            <mat-label>Stock Symbol</mat-label>
+            <input type="text" matInput placeholder="Enter Stock Symbol" formControlName="symbol" >
+        </mat-form-field> 
+        
+        <mat-form-field color="primary" class="datepicker form-element" appearance="fill" >
+            <mat-label>Pick a start date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="startDate" >
+            <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+            <mat-datepicker #picker1 color="primary" ></mat-datepicker>
+        </mat-form-field>
 
-<!-- <mat-card> -->
-    <ngx-datatable
+        <mat-form-field color="primary" class="datepicker form-element"  appearance="fill" >
+            <mat-label>Pick a end date</mat-label>
+            <div matTooltip="Please select a start date" [matTooltipDisabled]="requestFormGroup.controls['startDate'].value != null">
+                <input matInput [matDatepicker]="picker2" [min]="requestFormGroup.controls['startDate'].value"  formControlName="endDate" [disabled]="!requestFormGroup.controls['startDate'].value">
+            </div>
+            <mat-datepicker-toggle matSuffix [for]="picker2" ></mat-datepicker-toggle>
+            <mat-datepicker #picker2 color="primary" ></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="button" type="submit"> Search </button>
+
+    </form>
+
+</mat-card>
+<ngx-datatable
     class="material"
     [rows]="data"
     [columns]="columns"
@@ -10,6 +35,16 @@
     [headerHeight]="50"
     [footerHeight]="50"
     [rowHeight]="40"
-    [limit]="10"
-></ngx-datatable>
-<!-- </mat-card> -->
+    [limit]="10">
+</ngx-datatable>
+
+
+<ngx-spinner
+  name="stockSpinner"
+  bdColor="rgba(0,0,0,0.5)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+  [fullScreen]="true">
+  <p style="color: white">Loading...</p>
+</ngx-spinner>

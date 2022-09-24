@@ -9,3 +9,31 @@
 .ngx-datatable.scroll-vertical {
     height: 70vh;
 }
+
+.flex-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.input-box{
+    flex-grow: 2;
+    margin: 0rem 1rem;
+    height: 30px;
+}
+
+.datepicker{
+    flex-grow: 1;
+    flex-basis: 100px;
+    margin: 0rem 1rem;
+}
+
+.button{
+    flex-basis: 100px;
+    height: 45px;
+    margin: 0rem 0.5rem;
+
+}
+
+::ng-deep .mat-form-field {
+    font-size: 12px; // example
+}
