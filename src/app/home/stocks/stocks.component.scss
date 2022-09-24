@@ -1,0 +1,11 @@
+.mat-card, .ngx-datatable {
+    margin: 5rem 5rem;
+    z-index: 100;
+}
+
+.ngx-datatable.scroll-vertical .datatable-body {
+    overflow-y: auto;
+}
+.ngx-datatable.scroll-vertical {
+    height: 70vh;
+}
