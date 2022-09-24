@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
 
+# versions:
+ Angular CLI: 13.2.6  
+ Node: 16.14.0  
+ Package Manager: npm 8.3.1
+
 ## To install dependencies
 
 Run `npm install` in the application folder path.
